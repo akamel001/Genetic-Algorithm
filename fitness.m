@@ -4,7 +4,7 @@ n = length(x);
 
 %checking cosntraints 
 for i=1:n 
-    if(~(x(i)>= 0 && x(i) <= 10))
+    if(x(i)< 0 || x(i) > 10)
         value = 0;
         return;
     end
