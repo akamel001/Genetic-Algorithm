@@ -2,15 +2,16 @@ function [ value ] = fitness( x)
 
 n = length(x);
 
-%checking cosntraints 
-for i=1:n 
-    if(~(x(i)>= 0 && x(i) <= 10))
-        value = 0;
-        return;
-    end
+lowerBound = 0;
+upperBound = 10;
+
+%checking constraints 
+if sum((x < lowerBound) + (x > upperBound)) ~= 0
+   value = 0
+   return;
 end
 
-if(~(prod(x) >= .75))
+if(prod(x) < .75)
     value = 0;
     return;
 end
