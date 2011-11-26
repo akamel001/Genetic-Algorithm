@@ -16,14 +16,9 @@ if(prod(x) < .75)
     return;
 end
 
+denom = abs(sqrt(sum((x.^2) .* (1:n))))
+
 numer = abs(sum(cos(x').^4) - (2*prod(cos(x').^2)));
-denom = 0;
-for i=1:n
-    denom = denom + i*(x(i))^2;
-end
-
-denom = abs(sqrt(denom));
-
 value = numer/denom;
 
 end
